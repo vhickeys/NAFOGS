@@ -25,9 +25,9 @@
                                         </p>
 
                                         <div class="mt-2">
-                                            <a href="javascript:void(0)" class="btn btn-primary mt-2 me-2 ">Automated Force
+                                            <a href="{{ route('unit.login') }}" class="btn btn-primary mt-2 me-2 ">Automated Force
                                                 Generation Model</a>
-                                            <a href="javascript:void(0)"
+                                            <a href="{{ route('unit.login') }}"
                                                 class="btn btn-outline-white mt-2 btn-hover-dark">Theatre
                                                 Readiness Support Model</a>
                                         </div>
@@ -60,9 +60,9 @@
                                         </p>
 
                                         <div class="mt-2">
-                                            <a href="javascript:void(0)" class="btn btn-primary mt-2 me-2">Automated Force
+                                            <a href="{{ route('unit.login') }}" class="btn btn-primary mt-2 me-2">Automated Force
                                                 Generation Model</a>
-                                            <a href="javascript:void(0)"
+                                            <a href="{{ route('unit.login') }}"
                                                 class="btn btn-outline-white mt-2 btn-hover-dark">Theatre
                                                 Readiness Support Model</a>
                                         </div>
@@ -95,9 +95,9 @@
                                         </p>
 
                                         <div class="mt-2">
-                                            <a href="javascript:void(0)" class="btn btn-primary mt-2 me-2">Automated Force
+                                            <a href="{{ route('unit.login') }}" class="btn btn-primary mt-2 me-2">Automated Force
                                                 Generation Model</a>
-                                            <a href="javascript:void(0)"
+                                            <a href="{{ route('unit.login') }}"
                                                 class="btn btn-outline-white mt-2 btn-hover-dark">Theatre
                                                 Readiness Support Model</a>
                                         </div>
@@ -177,7 +177,7 @@
 
                     <div class="col-md-4 mt-4 mt-sm-0">
                         <div class="text-md-end text-center">
-                            <a href="javascript:void(0)" class="btn btn-primary">Get Started</a>
+                            <a href="{{ route('unit.login') }})" class="btn btn-primary">Get Started</a>
                         </div>
                     </div>
                     <!--end col-->
@@ -201,7 +201,7 @@
 
                     <div class="col-md-4 mt-4 mt-sm-0">
                         <div class="text-md-end text-center">
-                            <a href="javascript:void(0)" class="btn btn-primary">Get Started</a>
+                            <a href="{{ route('unit.login') }}" class="btn btn-primary">Get Started</a>
                         </div>
                     </div>
                     <!--end col-->

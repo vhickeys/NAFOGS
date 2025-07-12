@@ -3,7 +3,7 @@
     <div class="container">
         <!-- Logo container-->
         <div>
-            <a class="logo" href="#">
+            <a class="logo" href="{{ route('homepage') }}">
                 <img src="{{ asset('client/images/logo-dark.png') }}" class="l-dark" width="80"
                     alt="{{ config('app.name') }}" />
                 <img src="{{ asset('client/images/logo-light.png') }}" class="l-light" width="80"

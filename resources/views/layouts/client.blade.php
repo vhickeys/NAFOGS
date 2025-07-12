@@ -38,7 +38,7 @@
 
 <body>
 
-    @include('layouts.partials.tagline')
+    {{-- @include('layouts.partials.tagline') --}}
 
     @include('layouts.partials.navbar')
 
