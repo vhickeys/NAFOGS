@@ -25,7 +25,8 @@
                                         </p>
 
                                         <div class="mt-2">
-                                            <a href="{{ route('unit.login') }}" class="btn btn-primary mt-2 me-2 ">Automated Force
+                                            <a href="{{ route('unit.login') }}" class="btn btn-primary mt-2 me-2 ">Automated
+                                                Force
                                                 Generation Model</a>
                                             <a href="{{ route('unit.login') }}"
                                                 class="btn btn-outline-white mt-2 btn-hover-dark">Theatre
@@ -60,7 +61,8 @@
                                         </p>
 
                                         <div class="mt-2">
-                                            <a href="{{ route('unit.login') }}" class="btn btn-primary mt-2 me-2">Automated Force
+                                            <a href="{{ route('unit.login') }}" class="btn btn-primary mt-2 me-2">Automated
+                                                Force
                                                 Generation Model</a>
                                             <a href="{{ route('unit.login') }}"
                                                 class="btn btn-outline-white mt-2 btn-hover-dark">Theatre
@@ -95,7 +97,8 @@
                                         </p>
 
                                         <div class="mt-2">
-                                            <a href="{{ route('unit.login') }}" class="btn btn-primary mt-2 me-2">Automated Force
+                                            <a href="{{ route('unit.login') }}" class="btn btn-primary mt-2 me-2">Automated
+                                                Force
                                                 Generation Model</a>
                                             <a href="{{ route('unit.login') }}"
                                                 class="btn btn-outline-white mt-2 btn-hover-dark">Theatre
@@ -169,7 +172,7 @@
                                 Automated Force Generation Model
                             </h4>
                             <p class="text-muted para-desc mb-0">
-                                Generate optimized troop formations based on your input parameters.
+                                Determine if a sub unit is ready for deployment based on operational readiness criteria.
                             </p>
                         </div>
                     </div>
@@ -193,7 +196,8 @@
                                 Theatre Readiness Support Model
                             </h4>
                             <p class="text-muted para-desc mb-0">
-                                Evaluate and enhance your theatre-level troop preparedness.
+                                This app predicts whether a troop should be recalled or retained based on operational
+                                factors. Simply input the details below and click Predict.
                             </p>
                         </div>
                     </div>

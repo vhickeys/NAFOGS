@@ -9,10 +9,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('')->group(function () {
-    
+
     Route::get('', [HomepageController::class, 'index'])->name('homepage');
 
     Route::prefix('')->controller(SupportSytemController::class)->group(function () {
         Route::get('/unit-login', 'index')->name('unit.login');
+        Route::get('/aufogem', 'aufogem')->name('aufogem');
+        Route::get('/trsm', 'trsm')->name('trsm');
     });
 });

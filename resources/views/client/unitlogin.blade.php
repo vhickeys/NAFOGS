@@ -7,9 +7,9 @@
 
     <!-- Hero Start -->
     <section class="vh-100 user-pages d-flex align-items-center" style="
-                            background: url('{{ asset('client/images/bg/login.jpg') }}') no-repeat center center fixed;
-                            background-size: cover;
-                          ">
+                                background: url('{{ asset('client/images/bg/login.jpg') }}') no-repeat center center fixed;
+                                background-size: cover;
+                              ">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5 col-md-8 py-5">
@@ -29,6 +29,10 @@
                                     </div>
                                 </div>
                                 <!--end col-->
+
+                                <div class="col-12 mb-5">
+                                    <button class="btn btn-primary w-100">Sign in</button>
+                                </div>
 
                                 <div class="col-12">
                                     <div class="d-flex justify-content-between">
