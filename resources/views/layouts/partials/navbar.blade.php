@@ -43,7 +43,7 @@
             </ul>
             <!--end navigation menu-->
 
-            <ul class="list-unstyled small-tagline d-none mb-0">
+            {{-- <ul class="list-unstyled small-tagline d-none mb-0">
                 <li class="list-inline-item me-2">
                     <a href="javascript:void(0)" class="text-dark"><i data-feather="settings"
                             class="fea icon-sm"></i></a>
@@ -78,7 +78,7 @@
                     <a href="javascript:void(0)" class="text-dark"><i data-feather="twitter"
                             class="fea icon-sm"></i></a>
                 </li>
-            </ul>
+            </ul> --}}
             <!--end login button-->
         </div>
         <!--end navigation-->
