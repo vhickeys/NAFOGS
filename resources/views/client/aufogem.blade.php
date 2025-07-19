@@ -42,97 +42,80 @@
                         <div class="row">
                             <div class="col-12">
                                 <h3 class="text-center my-5">Input Sub-unit Parameters</h3>
-                                <form>
+                                <form method="POST" action="{{ route('predict.status') }}">
+                                    @csrf
                                     <div class="row">
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                <strong>Please fix the following errors:</strong>
+                                                <ul class="mt-2 mb-0">
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+
                                         <div class="col-md-12">
                                             <div class="mb-3">
                                                 <label class="form-label">Months served in rear unit <span
                                                         class="text-danger">*</span></label>
-                                                <div class="form-icon position-relative">
-                                                    <input name="months_served" id="months_served" type="number" value="1"
-                                                        class="form-control">
-                                                </div>
+                                                <input name="rear_months" type="number" value="{{ old('rear_months', 1) }}"
+                                                    class="form-control" required>
                                             </div>
                                         </div>
+
                                         <div class="col-md-12">
                                             <div class="mb-3">
                                                 <label class="form-label">In-barrack training duration <span
                                                         class="text-danger">*</span></label>
-                                                <div class="form-icon position-relative">
-                                                    <input name="months_served" id="months_served" type="number"
-                                                        value="3.00" class="form-control">
-                                                </div>
+                                                <input name="barrack_training" type="number" value="{{ old('barrack_training', 3.00) }}" step="0.01"
+                                                    class="form-control" required>
                                             </div>
                                         </div>
+
                                         <div class="col-md-12">
                                             <div class="mb-3">
                                                 <label class="form-label">Force/C2 ratio <span
                                                         class="text-danger">*</span></label>
-                                                <div class="form-icon position-relative">
-                                                    <input name="months_served" id="months_served" type="number"
-                                                        value="2.00" class="form-control">
-                                                </div>
+                                                <input name="force_ratio" type="number" value="{{ old('force_ratio', 2.00) }}" step="0.01"
+                                                    class="form-control" required>
                                             </div>
                                         </div>
+
                                         <div class="col-md-12">
                                             <div class="mb-3">
                                                 <label class="form-label">Years C2 has rested outside theatre <span
                                                         class="text-danger">*</span></label>
-                                                <div class="form-icon position-relative">
-                                                    <input name="months_served" id="months_served" type="number"
-                                                        value="2.00" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <div>
-                                                <label class="form-label">Has C2 elements in unit? <span
-                                                        class="text-danger">*</span></label>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <div class="form-check mb-0">
-                                                        <input class="form-check-input" checked="" type="radio"
-                                                            name="flexRadioDefault" id="flexRadioDefault1">
-                                                        <label class="form-check-label" for="flexRadioDefault1">Yes</label>
-                                                    </div>
-                                                </div>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <div class="form-check mb-0">
-                                                        <input class="form-check-input" checked="" type="radio"
-                                                            name="flexRadioDefault" id="flexRadioDefault2">
-                                                        <label class="form-check-label" for="flexRadioDefault2">No</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <div>
-                                                <label class="form-label">Have C2 served in North East? <span
-                                                        class="text-danger">*</span></label>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <div class="form-check mb-0">
-                                                        <input class="form-check-input" checked="" type="radio"
-                                                            name="flexRadioDefault" id="flexRadioDefault3">
-                                                        <label class="form-check-label" for="flexRadioDefault3">Yes</label>
-                                                    </div>
-                                                </div>
-                                                <div class="custom-control custom-radio custom-control-inline">
-                                                    <div class="form-check mb-0">
-                                                        <input class="form-check-input" checked="" type="radio"
-                                                            name="flexRadioDefault" id="flexRadioDefault4">
-                                                        <label class="form-check-label" for="flexRadioDefault4">No</label>
-                                                    </div>
-                                                </div>
+                                                <input name="c2_rest_years" type="number" value="{{ old('rear_months', 2.00) }}" step="0.01"
+                                                    class="form-control" required>
                                             </div>
                                         </div>
 
-                                    </div><!--end row-->
-                                    <div class="row mt-3">
-                                        <div class="col-sm-12">
-                                            <input type="submit" id="submit" name="predict" class="btn btn-primary w-100"
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Has C2 elements in unit? <span
+                                                    class="text-danger">*</span></label>
+                                            <div>
+                                                <input type="radio" name="has_c2" value="yes" checked> Yes
+                                                <input type="radio" name="has_c2" value="no"> No
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Have C2 served in North East? <span
+                                                    class="text-danger">*</span></label>
+                                            <div>
+                                                <input type="radio" name="served_ne" value="yes" checked> Yes
+                                                <input type="radio" name="served_ne" value="no"> No
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12 mt-3">
+                                            <input type="submit" class="btn btn-primary w-100"
                                                 value="Predict Deployment Status">
-                                        </div><!--end col-->
-                                    </div><!--end row-->
-                                </form><!--end form-->
+                                        </div>
+                                    </div>
+                                </form>
                             </div><!--end col-->
                         </div><!--end row-->
                     </div>

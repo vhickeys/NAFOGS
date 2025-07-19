@@ -7,9 +7,9 @@
 
     <!-- Hero Start -->
     <section class="vh-100 user-pages d-flex align-items-center" style="
-                                background: url('{{ asset('client/images/bg/login.jpg') }}') no-repeat center center fixed;
-                                background-size: cover;
-                              ">
+                                                                                        background: url('{{ asset('client/images/bg/login.jpg') }}') no-repeat center center fixed;
+                                                                                        background-size: cover;
+                                                                                      ">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5 col-md-8 py-5">
@@ -18,20 +18,58 @@
                         <div class="text-center">
                             <h5 class="mb-4 pb-2">Sign In</h5>
                         </div>
-                        <form class="login-form">
+                        <form class="login-form" method="post" action="{{ route('process.unit.login') }}">
+                            @csrf
                             <div class="row">
                                 <div class="col-12">
+                                    @if (session('status'))
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <strong>Whoops! Something went wrong:</strong>
+
+                                            @if(is_array(session('status')))
+                                                <ul>
+                                                    @foreach (session('status') as $message)
+                                                        <li>{{ $message }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            @else
+                                                {{ session('status') }}
+                                            @endif
+
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close"></button>
+                                        </div>
+                                    @endif
+
+
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <strong>Whoops! Something went wrong:</strong>
+                                            <ul class="mb-0 mt-2">
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close"></button>
+                                        </div>
+                                    @endif
+
+                                    <input type="hidden" value="{{ request()->query('model') }}" name="model">
                                     <div class="mb-3">
                                         <label class="form-label">Your Unit Nomenclature <span
                                                 class="text-danger">*</span></label>
-                                        <input type="email" class="form-control" name="text" required=""
+                                        <input type="text" class="form-control" name="unit" value="{{ old('unit') }}"
                                             placeholder="Your Your Unit Nomenclature" />
+                                        @error('unit')
+                                            <small class="text-danger">{{ $message }}*</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <!--end col-->
 
                                 <div class="col-12 mb-5">
-                                    <button class="btn btn-primary w-100">Sign in</button>
+                                    <button type="submit" class="btn btn-primary w-100">Sign in</button>
                                 </div>
 
                                 <div class="col-12">

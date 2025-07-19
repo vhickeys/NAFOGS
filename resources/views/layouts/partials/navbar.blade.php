@@ -34,6 +34,12 @@
                         class="sub-menu-item">About</a></li>
                 <li class="{{ request()->routeIs('homepage') ? 'active' : '' }}"><a href="{{ route('homepage') }}"
                         class="sub-menu-item">Contact</a></li>
+
+                @if(session('unit_logged_in'))
+                    <li class="active"><a href="{{ route('logout') }}" class="sub-menu-item">Logout
+                            ({{ session('unit_name') }})</a></li>
+                @endif
+
             </ul>
             <!--end navigation menu-->
 

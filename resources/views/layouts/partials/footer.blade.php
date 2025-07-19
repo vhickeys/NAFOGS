@@ -22,19 +22,20 @@
                             Homepage</a>
                     </li>
                     <li>
-                        <a href="{{ route('homepage') }}" class="text-foot"><i class="mdi mdi-chevron-right me-1"></i>
+                        <a href="{{ route('unit.login', ['model' => 'aufogem']) }}" class="text-foot"><i class="mdi mdi-chevron-right me-1"></i>
                             About</a>
                     </li>
                     <li>
-                        <a href="{{ route('unit.login') }}" class="text-foot"><i class="mdi mdi-chevron-right me-1"></i>
+                        <a href="{{ route('unit.login', ['model' => 'aufogem']) }}" class="text-foot"><i
+                                class="mdi mdi-chevron-right me-1"></i>
                             Automated Force Generation Model</a>
                     </li>
                     <li>
-                        <a href="{{ route('unit.login') }}" class="text-foot"><i
+                        <a href="{{ route('unit.login', ['model' => 'trsm']) }}" class="text-foot"><i
                                 class="mdi mdi-chevron-right me-1"></i>Theatre Readiness Support Model</a>
                     </li>
                     <li>
-                        <a href="{{ route('unit.login') }}" class="text-foot"><i
+                        <a href="{{ route('unit.login', ['model' => 'trsm']) }}" class="text-foot"><i
                                 class="mdi mdi-chevron-right me-1"></i>Contact</a>
                     </li>
                 </ul>

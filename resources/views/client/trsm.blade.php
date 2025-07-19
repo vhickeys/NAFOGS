@@ -44,61 +44,70 @@
                         <div class="row">
                             <div class="col-12">
                                 <h3 class="text-center my-5">Input Parameters</h3>
-                                <form>
+                                <form method="POST" action="{{ route('trsm.predict') }}">
+                                    @csrf
                                     <div class="row">
+
+                                        {{-- Validation error alert --}}
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger mt-3">
+                                                <strong>Please fix the following errors:</strong>
+                                                <ul class="mb-0 mt-2">
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+
                                         <div class="col-md-12">
                                             <div class="mb-3">
                                                 <label class="form-label">Months in Theatre <span
                                                         class="text-danger">*</span></label>
-                                                <div class="form-icon position-relative">
-                                                    <input name="months_served" id="months_served" type="number" value="1"
-                                                        class="form-control">
-                                                </div>
+                                                <input name="months_theatre" type="number"
+                                                    value="{{ old('months_theatre', 1) }}" class="form-control" required>
                                             </div>
                                         </div>
+
                                         <div class="col-md-12">
                                             <div class="mb-3">
-                                                <label class="form-label">Month Since Last Deployment <span
+                                                <label class="form-label">Months Since Last Deployment <span
                                                         class="text-danger">*</span></label>
-                                                <div class="form-icon position-relative">
-                                                    <input name="months_served" id="months_served" type="number"
-                                                        value="3.00" class="form-control">
-                                                </div>
+                                                <input name="months_since_last" type="number"
+                                                    value="{{ old('months_since_last', 3.00) }}" class="form-control"
+                                                    required>
                                             </div>
                                         </div>
+
                                         <div class="col-md-12">
                                             <div class="mb-3">
-                                                <label class="form-label">Attacks Repusled <span
+                                                <label class="form-label">Attacks Repulsed <span
                                                         class="text-danger">*</span></label>
-                                                <div class="form-icon position-relative">
-                                                    <input name="months_served" id="months_served" type="number"
-                                                        value="2.00" class="form-control">
-                                                </div>
+                                                <input name="attacks_repulsed" type="number"
+                                                    value="{{ old('attacks_repulsed', 2.00) }}" class="form-control"
+                                                    required>
                                             </div>
                                         </div>
+
                                         <div class="col-md-12">
                                             <div class="mb-3">
                                                 <label class="form-label">Casualty Level <span
                                                         class="text-danger">*</span></label>
-
-                                                <select name="" id="" class="form-control">
-                                                    <option value="Low">-- Select Casualty Level --</option>
-                                                    <option value="Low">Low</option>
-                                                    <option value="Medium">Medium</option>
-                                                    <option value="High">High</option>
+                                                <select name="casualty_level" class="form-control" required>
+                                                    <option value="">-- Select Casualty Level --</option>
+                                                    <option value="Low" {{ old('casualty_level') == 'Low' ? 'selected' : '' }}>Low</option>
+                                                    <option value="Medium" {{ old('casualty_level') == 'Medium' ? 'selected' : '' }}>Medium</option>
+                                                    <option value="High" {{ old('casualty_level') == 'High' ? 'selected' : '' }}>High</option>
                                                 </select>
-
                                             </div>
                                         </div>
 
-                                    </div><!--end row-->
-                                    <div class="row mt-3">
-                                        <div class="col-sm-12">
-                                            <input type="submit" id="submit" name="predict" class="btn btn-primary w-100"
+                                        <div class="col-sm-12 mt-3">
+                                            <input type="submit" class="btn btn-primary w-100"
                                                 value="Predict Deployment Status">
-                                        </div><!--end col-->
-                                    </div><!--end row-->
-                                </form><!--end form-->
+                                        </div>
+                                    </div>
+                                </form>
                             </div><!--end col-->
                         </div><!--end row-->
                     </div>
